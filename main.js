@@ -2,6 +2,7 @@ const express = require("express");
 const { Pool } = require("pg");
 
 const app = express();
+
 const port = 3000;
 
 const pool = new Pool({
@@ -9,7 +10,7 @@ const pool = new Pool({
   host: "localhost",
   database: "mvc_db",
   password: "postgres",
-  port: "54320",
+  port: "5432",
 });
 
 // Modelo
@@ -79,7 +80,6 @@ class Controller {
 //Instanciación
 const model = new Model();
 const controller = new Controller(model);
-
 app.use(express.json());
 
 app.get("/items", controller.getItems.bind(controller));
